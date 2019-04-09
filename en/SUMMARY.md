@@ -36,10 +36,9 @@
 ## Administrator
 
 * [Installation](admin/installation/readme.md)
-    * [Requirements](admin/installation/requirements.md)
-    * [Installation](admin/installation/installation.md)
-    * [VirtualHosts](admin/installation/virtualhosts.md)
-    * [Right Access](admin/installation/rightaccess.md)
+    * [Install wallabag on your server](admin/installation/installation_selfhosting.md)
+    * [Install wallabag on a web hosting service](admin/installation/installation_webhosting.md)
+    * [Web Server Configuration](admin/installation/virtualhosts.md)
 * [Common errors](admin/common_errors.md)
 * [Backup](admin/backup.md)
 * [Console commands](admin/console_commands.md)

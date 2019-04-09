@@ -16,11 +16,11 @@ For Docker aficionados, we provide you a Docker image to install wallabag easily
 
 ### Other packages
 
-wallabag is available as packages on [Cloudron](https://cloudron.io/store/org.wallabag.cloudronapp.html), [YunoHost](https://install-app.yunohost.org/?app=wallabag2) and [Synology NAS](https://synocommunity.com/package/wallabag).
+wallabag is available as packages for [Cloudron](https://cloudron.io/store/org.wallabag.cloudronapp.html), [YunoHost](https://install-app.yunohost.org/?app=wallabag2) and [Synology NAS](https://synocommunity.com/package/wallabag).
 
 {% hint style="danger" %} These packages are not provided directly by the developers of wallabag, and may not be up-to-date! {% endhint %}
 
-## Requirements for a self-hosted configuration or a mutualized server.
+## Hosting wallabag: Requirements
 
 If you're not scared, bravo! And let's get to it...
 
@@ -30,13 +30,14 @@ wallabag is an application written (mostly) in PHP, which uses an SQL database. 
 * an SQL database: MySQL/MariaDB or PostgreSQL (support for SQLite will be dropped with wallabag `2.4`, so we won't include it in this documentation),
 * PHP **`>= 5.6` with the following extensions activated**: `ctype`, `curl`, `dom`, `gd`, `hash`, `iconv`, `json`, `mbstring`, `pcre`, `pdo`, `session`, `simplexml`, `tidy`, `tokenizer`, and `xm` (you can see which extensions are on your system using the `php -m` command. Note that PHP `7.3` is not yet officially supported.),
 * the PHP extension for your desired SQL database: `pdo_mysql` or `pdo_pgsql`,
-* the `make` tool to exploit wallabag's `Makefile` (installed on most Linux/UNIX distributions).
+* the `make` tool to exploit wallabag's `Makefile` (installed on most Linux/UNIX distributions),
+* the `git` software to allow for a simple installation and easy upgrades.
 
-It is outside the scope of this documentation to learn how to install all these softwares, but you can find *lots* of information about them on the internet. Search for "LAMP", "LNMP" or "LEMP stacks" on your favorite research engine.
+It is outside the scope of this documentation to learn how to install all these softwares, but you can find *lots* of information about them on the internet. Search for "LAMP" (Linux/Apache/MySQL/PHP) or "LNMP/LEMP stacks" (Linux/nginx/MySQL/PHP) on your favorite research engine.
 
 {% hint style="info"} If you are planning to host wallabag on a shared/mutualized server, you might not have to bother with all these details, as a web server, a database and PHP will probably be already installed. However, you need to check with your provider what PHP extensions are installed! Unfortunately, if some of them are missing, you won't be able to install wallabag.
 
-More details for shared hosting are available later in this documentation.{% endhint %}
+More details for shared hosting are available [later in this documentation](installation_webhosting.md).{% endhint %}
 
 Last but not least, wallabag rely on a large number of external PHP libraries for its functioning, and uses `composer` to manage all the dependencies. You can either install it using your distribution's package manager (please check that it's at least the `1.2` version), or install it locally launching:
 ```
@@ -44,3 +45,6 @@ Last but not least, wallabag rely on a large number of external PHP libraries fo
 ```
 You can find more information about `composer` and its installation [on the official website](https://getcomposer.org/doc/00-intro.md).
 
+{% hint style="info"}Once again, if you want to run wallabag on a mutualized server or with a simple web hosting service, you might not have `composer` and won't be able to install it. We provide for this case [a package containing all the dependencies](https://wllbg.org/latest-v2-package); please refer to the relevant [installation section](installation_webhosting.md).{% endhint %}
+
+Once you checked that all the requirements are met, you can follow with the actual installation of wallabag, in the next section(s)!
