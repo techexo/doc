@@ -24,38 +24,40 @@ In wallabag's directory, run `php bin/console clear:cache -e prod` (you may need
 
 ## Domain & Mail
 
-- **domain_name** ('https://your-wallabag-url-instance.com': full URL of your wallabag instance, including the protocol (`http://` or `https://`) but without the trailing slash. See also [web server configuration](virtualhosts.md)
-- **mailer_transport** (smtp):
-- **mailer_host** (127.0.0.1):
-- **mailer_user** (null):
-- **mailer_password** (null):
-- **from_email** (no-reply@wallabag.org):
-- **locale** (en):
-- **rss_limit** (50):
+- **domain_name** ('https://your-wallabag-url-instance.com'): full URL of your wallabag instance, including the protocol (`http://` or `https://`) but without the trailing slash.
+- **mailer_transport** (smtp): the exact transport method to use to deliver emails. Valid values are smtp, gmail, mail, sendmail, or null (which will disable the mailer)
+- **mailer_host** (127.0.0.1): the host to connect to when using smtp as the transport.
+- **mailer_user** (null): username when using SMTP transport.
+- **mailer_password** (null): password of the username used for SMTP transport.
+- **from_email** (no-reply@wallabag.org): email address used in `From:` field in each email.
+- **locale** (en): default language of your wallabag instance (en, fr, es...).
+- **rss_limit** (50): item limit for RSS feeds.
 
 ## Two-factor authentication
 
-- **secret** (ovmpmAWXRCabNlMgzlzFXDYmCFfzGv):
-- **twofactor_auth** (true):
-- **twofactor_sender** (no-reply@wallabag.org):
+- **secret** (ovmpmAWXRCabNlMgzlzFXDYmCFfzGv): this is a string that should be unique to your application and it's commonly used to add more entropy to security related operations.
+- **twofactor_auth** (true): enable the possibility of two-factor authentication.
+- **twofactor_sender** (no-reply@wallabag.org): email from which two-factor codes will be sent.
 
 ## Public registration
 
-- **fosuser_registration** (true):
-- **fosuser_confirmation** (true):
+- **fosuser_registration** (true): enable public registration (anyone can register to your instance).
+- **fosuser_confirmation** (true): send an e-mail confirmation for each registration.
 
 ## RabbitMQ
 
-- **rabbitmq_host** (localhost):
-- **rabbitmq_port** (5672):
-- **rabbitmq_user** (guest):
-- **rabbitmq_password** (guest):
-- **rabbitmq_prefetch_count** (10):
+RabbitMQ can be used in order to launch asynchronous tasks, which is mostly useful for huge imports operations. More [here](asynchronous.md#install-rabbitmq-for-asynchronous-tasks).
+- **rabbitmq_host** (localhost): host of your RabbitMQ.
+- **rabbitmq_port** (5672): port of the RabbitMQ instance.
+- **rabbitmq_user** (guest): user authorized to read RabbitMQ queues.
+- **rabbitmq_password** (guest): password of that user.
+- **rabbitmq_prefetch_count** (10): number of wallabag actions to consider at once.
 
 ## Redis
 
-- **redis_scheme** (tcp):
-- **redis_host** (localhost):
-- **redis_port** (6379):
-- **redis_path** (null) :
-- **redis_password** (null):
+Redis can be used in order to launch asynchronous tasks, which is mostly useful for huge imports operations. More [here](asynchronous.md#install-redis-for-asynchronous-tasks).
+- **redis_scheme** (tcp): specifies the protocol used to communicate with an instance of Redis. Valid values are: tcp, unix, http.
+- **redis_host** (localhost): host of your Redis instance.
+- **redis_port** (6379): port of the Redis instance.
+- **redis_path** (null): path of the UNIX domain socket file used when connecting to Redis using UNIX domain sockets.
+- **redis_password** (null): password defined in the Redis server configuration (`requirepass` in `redis.conf`).
